@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-dark: #0D0E12;
+    --bg-panel: rgba(255, 255, 255, 0.02);
+    --border-glass: rgba(255, 255, 255, 0.05);
+    --border-hover: rgba(255, 255, 255, 0.1);
+    
+    --text-primary: #FFFFFF;
+    --text-secondary: #8B949E;
+    --text-muted: #484F58;
+
+    --accent-cyan: #00F2FE;
+    --accent-purple: #8A2BE2;
+  }
+
+  body {
+    @apply bg-[var(--bg-dark)] text-[var(--text-primary)] antialiased overflow-hidden;
+  }
+
+  ::selection {
+    background-color: var(--accent-cyan);
+    color: white;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-[var(--bg-panel)] border border-[var(--border-glass)];
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+  
+  .glass-panel-hover {
+    @apply hover:border-[var(--border-hover)] transition-colors duration-300;
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+  }
+
+  .text-glow-purple {
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+  }
+}
+
+/* Custom Scrollbar for the Log Viewport */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-glass);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
