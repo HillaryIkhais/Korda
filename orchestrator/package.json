@@ -1,0 +1,20 @@
+{
+  "name": "korda-orchestrator",
+  "version": "2.0.0",
+  "description": "OpenServ orchestration layer for Korda 2.0",
+  "main": "dist/agent.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/agent.js",
+    "dev": "tsc --watch & node dist/agent.js"
+  },
+  "dependencies": {
+    "@openserv-labs/sdk": "^0.1.0",
+    "zod": "^3.22.4",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.11.0"
+  }
+}

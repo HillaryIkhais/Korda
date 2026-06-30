@@ -1,0 +1,11 @@
+# Slack Transcript - Engineering Architecture Channel
+Date: 2024-08-15
+Topic: Post-Mortem on Q3 Authentication Outages
+
+@sarah_jenkins (Lead Engineer): We've had 3 severe latency spikes this quarter during peak traffic. The Monolithic REST auth service can't handle the load anymore. The DB connection pool gets exhausted.
+
+@david_chen (Backend Architect): Agreed. The REST monolith was good for 2023, but we've outgrown it. I propose we migrate the authentication logic to a distributed gRPC service written in Go, and use Redis for session caching instead of hitting MongoDB for every token validation.
+
+@sarah_jenkins: That makes sense. The scalability bottlenecks are the primary driver here. Let's make it happen. We will deprecate the Express.js REST monolith and move fully to the Go gRPC microservice by the end of Q3. 
+
+@david_chen: Cool. I'll write up the new ADR. This supersedes ADR-001.

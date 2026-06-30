@@ -1,0 +1,20 @@
+# Architecture Decision Record (ADR) 001
+Date: 2023-05-12
+Title: Adoption of Monolithic REST Architecture for Authentication Service
+Status: Accepted
+Author: Sarah Jenkins, Lead Engineer
+
+## Context
+Our user base is growing, and we need a reliable way to handle authentication. We are currently a small team and need to move fast.
+
+## Decision
+We will build the Authentication Service as a monolithic REST API using Express.js and MongoDB. 
+
+## Rationale
+- Simplicity in deployment.
+- Well-understood patterns by the current engineering team.
+- Low overhead in communication compared to microservices.
+
+## Consequences
+- Potential scaling bottlenecks if user login spikes occur.
+- Tightly coupled codebase over time.
